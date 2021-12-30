@@ -15,6 +15,7 @@ import { getColorName } from '../../utils/nameUtils';
 import ColorBar from './ColorBar';
 import ColorEditor from './ColorEditor';
 import ContrastCompare from './ContrastCompare';
+import QuoteDisplay from './QuoteDisplay';
 
 const GeneratorPage: FC = () => {
   const [hslRef, setHslRef] = useState<HSL>(randomHslRef());
@@ -168,6 +169,8 @@ const GeneratorPage: FC = () => {
       </button>
 
       <ContrastCompare palette={colorPalette} />
+
+      <QuoteDisplay />
     </div>
   );
 };

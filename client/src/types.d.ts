@@ -29,3 +29,8 @@ type TColor = {
 type TPalette = Array<TColor>;
 
 type TColorFormat = 'hex' | 'rgb' | 'hsl';
+
+type ColorQuote = {
+  text: string;
+  author: string;
+};

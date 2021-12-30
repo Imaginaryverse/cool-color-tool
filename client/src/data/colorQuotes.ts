@@ -1,8 +1,3 @@
-type ColorQuote = {
-  text: string;
-  author: string;
-};
-
 export const colorQuotes: ColorQuote[] = [
   { text: 'Colors are the smiles of nature', author: 'Leigh Hunt' },
   {
@@ -135,10 +130,6 @@ export const colorQuotes: ColorQuote[] = [
     author: 'Wassily Kandinsky',
   },
   {
-    text: '"Make your plate look like a Christmas tree", I tell people, "mostly green with splashes of other bright colors"',
-    author: 'Victoria Moran',
-  },
-  {
     text: 'Everything is blooming most recklessly; if it were voices instead of colors, there would be an unbelievable shrieking into the heart of the night',
     author: 'Rainer Maria Rilke',
   },
@@ -157,10 +148,6 @@ export const colorQuotes: ColorQuote[] = [
   {
     text: 'After some time, with my eyes closed, I began to enjoy this wonderful play of colors and forms, which it really was a pleasure to observe. Then I went to sleep and the next day I was fine. I felt quite fresh, like a newborn',
     author: 'Albert Hofmann',
-  },
-  {
-    text: "I'm not always a heartbroken guy. I like to laugh, act silly, dance. There are so many more colors to me. I really can be fun",
-    author: 'Anthony Hamilton',
   },
   {
     text: 'I get the same charge from juxtaposition of colors as I do from juxtaposition of chords',
