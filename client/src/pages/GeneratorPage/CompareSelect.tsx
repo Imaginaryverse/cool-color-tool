@@ -27,10 +27,9 @@ const CompareSelect: FC<Props> = ({
 
   const listItemStyle: CSSProperties = {
     height: '100%',
-    padding: '0 8%',
+    padding: '0 9%',
     display: 'flex',
-    // justifyContent: type === 'background' ? 'flex-start' : 'flex-end',
-    justifyContent: 'center',
+    justifyContent: type === 'background' ? 'flex-end' : 'flex-start',
     alignItems: 'center',
     cursor: 'pointer',
   };
