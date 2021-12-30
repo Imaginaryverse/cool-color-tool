@@ -28,10 +28,37 @@ const ContrastCompare: FC<Props> = ({ palette }) => {
     setContrastRatio(ratio);
   }, [palette, leftIndex, rightIndex]);
 
+  const mainWrapperStyle: CSSProperties = {
+    width: '100%',
+    marginTop: '1rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderTop: '1px solid black',
+    borderBottom: '1px solid black',
+  };
+
+  const labelContainerStyle: CSSProperties = {
+    width: '100%',
+    padding: '.25rem 0',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  };
+
+  const labelStyle: CSSProperties = {
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: '9.5px',
+    fontWeight: 'bold',
+  };
+
   const contrastCompareContainerStyle: CSSProperties = {
     height: '300px',
     width: '100%',
-    marginTop: '1rem',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -40,28 +67,53 @@ const ContrastCompare: FC<Props> = ({ palette }) => {
   };
 
   return (
-    <div
-      className='contrast-compare-container'
-      style={contrastCompareContainerStyle}
-    >
-      <CompareSelect
-        palette={palette}
-        selectedIndex={leftIndex}
-        onSelect={setLeftIndex}
-      />
+    <div style={mainWrapperStyle}>
+      <header className='label-container' style={labelContainerStyle}>
+        <p
+          style={{
+            ...labelStyle,
+            minWidth: '50px',
+            width: '16%',
+          }}
+        >
+          Background
+        </p>
+        <p style={{ ...labelStyle }}>Preview</p>
+        <p
+          style={{
+            ...labelStyle,
+            minWidth: '50px',
+            width: '16%',
+          }}
+        >
+          Foreground
+        </p>
+      </header>
+      <div
+        className='contrast-compare-container'
+        style={contrastCompareContainerStyle}
+      >
+        <CompareSelect
+          palette={palette}
+          selectedIndex={leftIndex}
+          type='background'
+          onSelect={setLeftIndex}
+        />
 
-      <ContrastInfo
-        palette={palette}
-        leftIndex={leftIndex}
-        rightIndex={rightIndex}
-        ratio={contrastRatio}
-      />
+        <ContrastInfo
+          palette={palette}
+          leftIndex={leftIndex}
+          rightIndex={rightIndex}
+          ratio={contrastRatio}
+        />
 
-      <CompareSelect
-        palette={palette}
-        selectedIndex={rightIndex}
-        onSelect={setRightIndex}
-      />
+        <CompareSelect
+          palette={palette}
+          selectedIndex={rightIndex}
+          type='foreground'
+          onSelect={setRightIndex}
+        />
+      </div>
     </div>
   );
 };

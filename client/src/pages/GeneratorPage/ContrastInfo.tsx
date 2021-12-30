@@ -83,7 +83,7 @@ const ContrastInfo: FC<Props> = ({ palette, leftIndex, rightIndex, ratio }) => {
             fontSize: '12px',
           }}
         >
-          Small regular text
+          Small normal text
         </p>
       </div>
       <div className='contrast-info-container' style={testResultsContainer}>

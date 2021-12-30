@@ -4,10 +4,18 @@ import { hexToRgb, isDark } from '../../utils/colorUtils';
 type Props = {
   palette: TPalette;
   selectedIndex: number;
+  type: CompareSelectType;
   onSelect: (idx: number) => void;
 };
 
-const CompareSelect: FC<Props> = ({ palette, selectedIndex, onSelect }) => {
+type CompareSelectType = 'background' | 'foreground';
+
+const CompareSelect: FC<Props> = ({
+  palette,
+  selectedIndex,
+  type,
+  onSelect,
+}) => {
   const listStyle: CSSProperties = {
     height: '100%',
     minWidth: '50px',
@@ -19,14 +27,19 @@ const CompareSelect: FC<Props> = ({ palette, selectedIndex, onSelect }) => {
 
   const listItemStyle: CSSProperties = {
     height: '100%',
+    padding: '0 8%',
     display: 'flex',
+    // justifyContent: type === 'background' ? 'flex-start' : 'flex-end',
     justifyContent: 'center',
     alignItems: 'center',
     cursor: 'pointer',
   };
 
-  const selectTextStyle: CSSProperties = {
-    fontSize: '0.7rem',
+  const selectMarkerStyle: CSSProperties = {
+    height: '10px',
+    width: '10px',
+    borderRadius: '50%',
+    transition: 'all 0.2s ease',
   };
 
   return (
@@ -38,14 +51,16 @@ const CompareSelect: FC<Props> = ({ palette, selectedIndex, onSelect }) => {
           onClick={() => onSelect(i)}
           style={{ ...listItemStyle, backgroundColor: color.hex }}
         >
-          <p
-            style={{
-              ...selectTextStyle,
-              color: isDark(hexToRgb(color.hex)) ? 'white' : 'black',
-            }}
-          >
-            {selectedIndex === i && 'selected'}
-          </p>
+          {selectedIndex === i && (
+            <span
+              style={{
+                ...selectMarkerStyle,
+                backgroundColor: isDark(hexToRgb(color.hex))
+                  ? 'white'
+                  : 'black',
+              }}
+            ></span>
+          )}
         </li>
       ))}
     </ul>
